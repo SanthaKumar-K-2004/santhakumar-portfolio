@@ -55,7 +55,6 @@ import {
   mongodb,
   microsoft,
   ibm,
-  msfullstackcert,
 } from "../assets";
 
 export const navLinks = [
