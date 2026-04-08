@@ -7,6 +7,12 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
+// Alias creator as fullstack for services section
+const fullstack = creator;
+
+// Resume path (served from public folder)
+const resume = "/resume/SanthakumarK_Resume.pdf";
+
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
@@ -25,6 +31,7 @@ import java from "./tech/java.png";
 import cplusplus from "./tech/c++.svg";
 import postgresql from "./tech/postgresql.png";
 import aws from "./tech/aws.png";
+import azure from "./tech/azure.png";
 import ubuntu from "./tech/ubuntu.png";
 import powershell from "./tech/powershell.svg";
 import cisco from "./tech/cisco.svg";
@@ -69,6 +76,7 @@ export {
   logo,
   backend,
   creator,
+  fullstack,
   mobile,
   web,
   github,
@@ -92,6 +100,7 @@ export {
   cplusplus,
   postgresql,
   aws,
+  azure,
   ubuntu,
   powershell,
   cisco,
@@ -129,4 +138,5 @@ export {
   iot_home,
   portfolio_3d,
   profilepic,
+  resume,
 };

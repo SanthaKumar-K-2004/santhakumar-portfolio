@@ -23,7 +23,6 @@ import {
   typescript,
   powershell,
   cisco,
-  connectwise,
   virtualbox,
   kalilinux,
   wireshark,
