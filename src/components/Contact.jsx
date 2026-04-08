@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import emailjs from "@emailjs/browser"
 import { Toaster, toast } from "react-hot-toast"
 import Confetti from "react-confetti"
-import ReCAPTCHA from "react-google-recaptcha"
+// reCAPTCHA removed
 
 import { styles } from "../styles"
 import { EarthCanvas } from "./canvas"
@@ -17,8 +17,7 @@ import { faUser, faEnvelope, faComment, faPaperPlane, faSpinner, faPhone } from 
 
 const Contact = () => {
   const formRef = useRef()
-  const captchaRef = useRef()
-  const [captchaToken, setCaptchaToken] = useState(null)
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -75,14 +74,7 @@ const Contact = () => {
       return
     }
 
-    if (!captchaToken) {
-      toast("Hold up! Gotta make sure you're not a spam bot, checkmark the CAPTCHA! 🧠🤖", {
-        icon: "🛡️",
-        duration: 3500,
-        position: "bottom-right",
-      })
-      return
-    }
+
 
     setLoading(true)
 
@@ -92,9 +84,9 @@ const Contact = () => {
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
-          to_name: "Sunny Patel",
+          to_name: "Santhakumar K",
           from_email: form.email,
-          to_email: "sunnypatel124555@gmail.com",
+          to_email: "santhakumark776@gmail.com",
           message: form.message,
         },
         import.meta.env.VITE_EMAIL_JS_ACCESS_TOKEN,
@@ -109,8 +101,7 @@ const Contact = () => {
             position: "bottom-right",
           })
           setShowConfetti(true)
-          setCaptchaToken(null)
-          captchaRef.current.reset()
+
           setTimeout(() => {
             setSuccess(false)
             setShowConfetti(false)
@@ -150,11 +141,11 @@ const Contact = () => {
         <div className="flex justify-between items-center mb-4">
           <p className={styles.sectionSubText}>Get in touch</p>
           <a
-            href="tel:+14372161611"
+            href="tel:+919345347835"
             className="text-purple-400 hover:text-purple-300 transition-all duration-300 flex items-center gap-2 hover:gap-3 group"
           >
             <FontAwesomeIcon icon={faPhone} className="group-hover:rotate-12 transition-transform duration-300" />
-            <span className="font-medium">(437) 216-1611</span>
+            <span className="font-medium">+91 93453 47835</span>
           </a>
         </div>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -204,22 +195,12 @@ const Contact = () => {
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="Hey Sunny, love the website! I'd like to chat about some opportunities you might like! 🎉"
+              placeholder="Hey Santhakumar, love the website! I'd like to chat about some opportunities you might like! 🎉"
               className="bg-black-100/50 backdrop-blur-sm py-4 px-6 placeholder:text-secondary text-white rounded-xl outline-none border-2 border-white/20 font-medium transition-all duration-300 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 focus:bg-black-100/70 hover:border-white/30 resize-none"
             />
           </label>
 
-          <div className="flex justify-center">
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <ReCAPTCHA
-                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                onChange={(token) => setCaptchaToken(token)}
-                theme="dark"
-                ref={captchaRef}
-              />
-            </div>
-          </div>
-          <span className="text-xs text-gray-400 text-center -mt-4">Protected by reCAPTCHA Enterprise. ⚔️</span>
+
 
           <button
             type="submit"

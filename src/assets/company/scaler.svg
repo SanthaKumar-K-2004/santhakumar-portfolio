@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40">
+  <rect width="100" height="40" fill="transparent"/>
+  <text x="5" y="30" font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#5B6EF5">SCALER</text>
+  <rect x="85" y="10" width="10" height="20" rx="2" fill="#5B6EF5"/>
+</svg>

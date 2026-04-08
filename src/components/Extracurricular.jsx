@@ -11,42 +11,95 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-const CertificationCard = ({ title, icon, type, date, points, credential }) => (
-  <div className="certification-card bg-tertiary p-6 rounded-2xl w-full h-full flex flex-col justify-between no-select">
-    <div>
-      <div className="relative w-full h-[50px] mb-4">
-        <img
-          src={icon}
-          alt={title}
-          className="w-auto h-full object-contain no-select"
-        />
-      </div>
-      <h3 className="text-white font-bold text-[20px] mb-2 no-select">{title}</h3>
-      <p className="text-secondary text-[12px] mb-1 no-select">{type}</p>
-      <p className="text-secondary text-[12px] mb-3 no-select">{date}</p>
-      <ul className="list-disc ml-5 space-y-1">
-        {points.slice(0, 2).map((point, index) => (
-          <li
-            key={`certification-point-${index}`}
-            className="text-white-100 text-[12px] pl-1 tracking-wider no-select"
-          >
-            {point}
-          </li>
-        ))}
-      </ul>
-    </div>
-    <div className="mt-4 flex justify-end no-select">
-      <a
-        href={credential}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="black-gradient text-secondary py-2 px-4 rounded-lg outline-none w-fit text-[12px] font-bold shadow-md shadow-primary transition-all hover:scale-105 hover:shadow-[0_0_10px_rgba(128,0,128,0.7)] no-select"
+const CertificationCard = ({ title, icon, type, issuer, iconBg, date, points, credential }) => {
+  const openCertificate = () => {
+    window.open(credential, '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.3 }}
+      className="h-full"
+    >
+      <div
+        className="certification-card bg-opacity-20 backdrop-blur-lg bg-[#1e1e3f] p-8 rounded-3xl w-full h-full flex flex-col justify-between cursor-pointer group border border-white/10 hover:border-white/20 transition-all duration-300 relative overflow-hidden"
+        style={{
+          boxShadow: `0 10px 30px -15px ${iconBg || '#ffffff'}44`,
+        }}
+        onClick={openCertificate}
       >
-        View Credential
-      </a>
-    </div>
-  </div>
-);
+        {/* Brand Accent Glow */}
+        <div
+          className="absolute -top-10 -right-10 w-40 h-40 rounded-full blur-[80px] opacity-20 pointer-events-none"
+          style={{ backgroundColor: iconBg }}
+        />
+
+        <div>
+          <div className="flex justify-between items-start mb-6">
+            <div
+              className="w-16 h-16 rounded-2xl flex items-center justify-center p-3 shadow-inner"
+              style={{ backgroundColor: `${iconBg}22`, border: `1px solid ${iconBg}44` }}
+            >
+              <img
+                src={icon}
+                alt={title}
+                className="w-full h-full object-contain filter drop-shadow-md"
+              />
+            </div>
+            <p className="text-[#915eff] text-[12px] font-bold tracking-widest uppercase">{date}</p>
+          </div>
+
+          <h3 className="text-white font-bold text-[22px] mb-2 leading-[1.2] group-hover:text-[#915eff] transition-colors duration-300">
+            {title}
+          </h3>
+
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: iconBg }} />
+            <p className="text-secondary text-[13px] font-medium tracking-wide">
+              {issuer} <span className="mx-2 opacity-30">|</span> {type}
+            </p>
+          </div>
+
+          <ul className="mt-4 space-y-3">
+            {points.slice(0, 2).map((point, index) => (
+              <li
+                key={`certification-point-${index}`}
+                className="text-white-100 text-[13px] leading-relaxed opacity-80 flex gap-2"
+              >
+                <span className="text-[#915eff]">•</span>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-8 flex items-center justify-between">
+          <div className="flex -space-x-2">
+            <div className="w-8 h-8 rounded-full border-2 border-[#1e1e3f] bg-[#2a2a4a] flex items-center justify-center">
+              <span className="text-[10px] text-white/50 font-bold">PDF</span>
+            </div>
+          </div>
+
+          <button
+            className="group/btn relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-xl hover:bg-indigo-500 shadow-lg shadow-indigo-900/20 active:scale-95"
+            onClick={(e) => {
+              e.stopPropagation();
+              openCertificate();
+            }}
+          >
+            <span className="relative z-10 flex items-center gap-2 text-[13px]">
+              View Credential
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const Extracurricular = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -74,7 +127,11 @@ const Extracurricular = () => {
   }, []);
 
   return (
-    <div ref={sectionRef}>
+    <div ref={sectionRef} className="relative">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-20 -left-20 w-80 h-80 bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-20 -right-20 w-80 h-80 bg-indigo-900/10 blur-[120px] rounded-full pointer-events-none" />
+
       <motion.div
         initial="hidden"
         animate={mainControls}
@@ -83,7 +140,7 @@ const Extracurricular = () => {
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
       >
-        <p className={`${styles.sectionSubText} text-center`}>Continuous Learning</p>
+        <p className={`${styles.sectionSubText} text-center`}>Growth & Recognition</p>
       </motion.div>
 
       <motion.div
@@ -91,18 +148,18 @@ const Extracurricular = () => {
         animate={mainControls}
         variants={{
           hidden: { opacity: 0, y: -20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } },
         }}
       >
         <h2 className={`${styles.sectionHeadText} text-center`}>Certifications</h2>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         variants={fadeIn("up", "spring", 0.5, 0.75)}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        className="mt-20 flex flex-col items-center"
+        viewport={{ once: true, amount: 0.1 }}
+        className="mt-16 w-full"
       >
         <Swiper
           effect={'coverflow'}
@@ -110,96 +167,73 @@ const Extracurricular = () => {
           centeredSlides={true}
           slidesPerView={"auto"}
           loop={true}
-          spaceBetween={0}
           coverflowEffect={{
-            rotate: 50,
+            rotate: 15,
             stretch: 0,
             depth: 100,
-            modifier: 1,
-            slideShadows: false, // Disable slide shadows entirely
+            modifier: 2.5,
+            slideShadows: false,
           }}
           pagination={{
             clickable: true,
+            dynamicBullets: true,
           }}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
-          className="mySwiper"
           autoplay={{
-            delay: 3000,
+            delay: 0,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
+          speed={4000}
+          modules={[EffectCoverflow, Pagination, Autoplay]}
+          className="certificate-swiper py-20"
           breakpoints={{
-            1024:{
-              slidesPerView: 3,
-            }
+            320: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 30 },
+            1024: { slidesPerView: 3, spaceBetween: 40 }
           }}
-         
         >
           {extracurricular.map((certification, index) => (
-            <SwiperSlide key={`certification-${index}`}>
-              <CertificationCard {...certification} />
+            <SwiperSlide key={`certification-${index}`} className="!h-auto flex">
+              <CertificationCard
+                {...certification}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
       </motion.div>
 
-      <style jsx global>{`
-        .mySwiper {
+      <style jsx="true" global="true">{`
+        .certificate-swiper {
           width: 100%;
-          padding-top: 50px;
-          padding-bottom: 50px;
+          padding-left: 5% !important;
+          padding-right: 5% !important;
         }
-        .swiper-slide {
-          background-position: center;
-          background-size: cover;
-          width: 280px;
-          height: 380px;
-        }
-        .swiper-slide-active {
-          transform: scale(1.1) !important;
-        }
-        .swiper-slide img {
-          display: block;
-          width: 100%;
+        .certificate-swiper .swiper-wrapper {
+          transition-timing-function: linear !important;
         }
         .swiper-pagination-bullet {
-          background: #915eff;
+          background: #915eff !important;
+          opacity: 0.3;
+        }
+        .swiper-pagination-bullet-active {
+          opacity: 1;
+          width: 20px !important;
+          border-radius: 10px !important;
         }
         .certification-card {
-          background-color: rgba(30, 30, 60, 0.8);
-          backdrop-filter: blur(10px);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          transition: all 0.3s ease-in-out;
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
         }
-        .black-gradient {
-          background: #000000;
-          background: -webkit-linear-gradient(to right, #434343, #000000);
-          background: linear-gradient(to right, #434343, #000000);
+        .certification-card:hover {
+          box-shadow: 0 12px 40px rgba(145, 94, 255, 0.15);
         }
         @media (max-width: 768px) {
+          .certificate-swiper {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
           .swiper-slide {
-            width: 90vw;
-            max-width: 300px;
-            height: auto;
-            min-height: 340px;
-            opacity: 1 !important;
-            transform: scale(1) !important;
-          }
-          .swiper-slide-active {
-            transform: scale(1) !important;
-          }
-          .mySwiper {
-            padding-left: 5vw;
-            padding-right: 5vw;
-          }
-          .certification-card {
-            background-color: rgba(30, 30, 60, 0.8);
-            box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
-          }
-          .swiper-slide-next,
-          .swiper-slide-prev {
-            opacity: 0 !important;
-            visibility: hidden;
+            width: 100% !important;
+            max-width: 340px;
           }
         }
       `}</style>

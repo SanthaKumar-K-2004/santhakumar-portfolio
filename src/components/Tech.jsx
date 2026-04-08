@@ -22,7 +22,6 @@ import {
   powershell,
   azure,
   cisco,
-  connectwise,
   virtualbox,
   kalilinux,
   wireshark,
@@ -39,21 +38,20 @@ const programming = [
   { name: "C++", icon: cplusplus },
   { name: "JavaScript", icon: javascript },
   { name: "TypeScript", icon: typescript },
-  { name: "Docker", icon: docker },
   { name: "Tailwind CSS", icon: tailwind },
   { name: "React JS", icon: reactjs },
   { name: "PostgreSQL", icon: postgresql },
   { name: "MongoDB", icon: mongodb },
   { name: "Three.js", icon: threejs },
+  { name: "Docker", icon: docker },
 ];
 
 const itTools = [
   { name: "AWS", icon: aws },
+  { name: "Azure", icon: azure },
   { name: "Ubuntu", icon: ubuntu },
   { name: "PowerShell", icon: powershell },
-  { name: "Azure", icon: azure },
   { name: "Cisco", icon: cisco },
-  { name: "ConnectWise", icon: connectwise },
   { name: "VirtualBox", icon: virtualbox },
   { name: "Kali Linux", icon: kalilinux },
   { name: "Wireshark", icon: wireshark },
@@ -75,7 +73,7 @@ const Tech = () => {
   });
 
   const ref = useRef(null);
-  const isInView = useInView(ref, { 
+  const isInView = useInView(ref, {
     once: true,
     amount: 0.2
   });
@@ -133,14 +131,14 @@ const Tech = () => {
 
   const hexagonVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { 
-        delay: Math.random() * 1.5, 
-        duration: 0.5, 
-        type: "spring" 
-      } 
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: Math.random() * 1.5,
+        duration: 0.5,
+        type: "spring"
+      }
     },
     hover: {
       scale: 1.05,
@@ -160,23 +158,15 @@ const Tech = () => {
         visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
       }}
     >
-      <motion.h2
+      <motion.h3
         className="category-title top"
         variants={{
           hidden: { opacity: 0, y: -20 },
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
-        style={{
-          fontFamily: "'', cursive",
-          fontSize: "26px",
-          background: "linear-gradient(90deg, #915EFF, #00BFFF)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          textFillColor: "transparent",
-          filter: "drop-shadow(0 0 10px #915EFF)",
-        }}
-      >{`<${categoryName}>`}</motion.h2>
+      >
+        {categoryName}
+      </motion.h3>
       <div className="honeycomb-grid">
         {categoryRows?.map((row, rowIndex) => (
           <div
@@ -192,29 +182,12 @@ const Tech = () => {
                 animate="visible"
                 whileHover="hover"
               >
-                <img src={tech.icon} alt={tech.name}  style={{ userSelect: "none" }} draggable="false"/>
+                <img src={tech.icon} alt={tech.name} style={{ userSelect: "none" }} draggable="false" />
               </motion.div>
             ))}
           </div>
         ))}
       </div>
-      <motion.h2
-        className="category-title bottom"
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-        }}
-        style={{
-          fontFamily: "'', cursive",
-          fontSize: "26px",
-          background: "linear-gradient(90deg, #915EFF, #00BFFF)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          textFillColor: "transparent",
-          filter: "drop-shadow(0 0 10px #915EFF)",
-        }}
-      >{`</${categoryName}>`}</motion.h2>
     </motion.div>
   );
 
@@ -225,9 +198,9 @@ const Tech = () => {
           <p className={`${styles.sectionSubText} text-center`}>Technical Proficiencies</p>
           <h2 className={`${styles.sectionHeadText} text-center`}>Skills.</h2>
         </motion.div>
-        {renderCategory("programming", rows.programming)}
-        {renderCategory("itTools", rows.itTools)}
-        {renderCategory("contentProduction", rows.contentProduction)}
+        {renderCategory("Core Technologies", rows.programming)}
+        {renderCategory("Tools & Platforms", rows.itTools)}
+        {renderCategory("Creative Tools", rows.contentProduction)}
       </div>
     </section>
   );

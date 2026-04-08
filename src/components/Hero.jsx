@@ -70,15 +70,15 @@ const WavingHand = () => {
 
 const Hero = () => {
   const typedItems = [
-    "Software Developer",
-    "Systems Administrator",
-    "Computer Enthusiast",
-    "Team Leader"
+    "Full-Stack Developer",
+    "AI Enthusiast",
+    "IoT Developer",
+    "Tech Innovator"
   ];
 
   return (
     <section className="relative w-full h-screen mx-auto">
-      <style jsx>{`
+      <style jsx="true">{`
         @keyframes wave {
           0% { transform: rotate(0deg); }
           10% { transform: rotate(-10deg); }
@@ -104,12 +104,12 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-[#915EFF]">Sunny</span> <WavingHand />
+            Hi, I'm <span className="text-[#915EFF]">Santhakumar</span> <WavingHand />
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             I'm a <TypewriterText texts={typedItems} />
             <br />
-            <b>Welcome to my portfolio, please view on desktop for an interactive experience!</b>
+            <b>Welcome to my portfolio! I'm a Diploma CSE student passionate about AI, IoT, and Full-Stack Development.</b>
           </p>
         </div>
       </div>

@@ -1,148 +1,132 @@
-import profilepic from './pfp.png';
-
 import logo from "./logo0.png";
 import backend from "./backend.png";
+import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
-import fullstack from "./creator.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
+import css from "./tech/css.png";
 import docker from "./tech/docker.png";
-// import figma from "./tech/figma.png";  // unused - not displayed
-// import mysql from "./tech/mysql.png";  // unused - not displayed
-// import css from "./tech/css.png";      // unused - not displayed
-// import git from "./tech/git.png";      // unused - not displayed
-// import html from "./tech/html.png";    // unused - not displayed
+import figma from "./tech/figma.png";
+import git from "./tech/git.png";
+import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
-import java from "./tech/java.png";
-import ubuntu from "./tech/ubuntu.png";
-import reactjs from "./tech/reactjs.png";
-import postgresql from "./tech/postgresql.png";
 import mongodb from "./tech/mongodb.png";
-// import linux from "./tech/linux.png";  // unused - not displayed
+import nodejs from "./tech/nodejs.png";
+import reactjs from "./tech/reactjs.png";
+import redux from "./tech/typescript.png"; // Placeholder if missing
 import tailwind from "./tech/tailwind.png";
-import python from "./tech/python.png"
-import cplusplus from "./tech/c++.svg"
-import typescript from "./tech/typescript.png"
-import threejs from "./tech/threejs.svg"
-
-import azure from "./tech/azure.png";
-import powershell from "./tech/powershell.svg"
-import cisco from "./tech/cisco.svg"
-import connectwise from "./tech/connectwise.png"
-import virtualbox from "./tech/virtualbox.png"
-import kalilinux from "./tech/kali_linux.svg"
-import wireshark from "./tech/wireshark.png"
-import nmap from "./tech/nmap.svg"
-// import metasploit from "./tech/metasploit.svg"  // unused - not in Tech.jsx
-import johntheripper from "./tech/johntheripper.svg"
-// import hydra from "./tech/hydra.svg"  // unused - not in Tech.jsx
-// import aircrackng from "./tech/aircrackng.svg"  // unused - not in Tech.jsx
-
-import photoshop from "./tech/photoshop.svg"
-import premiere from "./tech/premiere.svg"
-import cinema4d from "./tech/cinema4d.png"
-// import blender from "./tech/blender.svg"  // unused - not in Tech.jsx
-
-
-import otu from "./company/otu.png"
-import rhhs from "./company/rhhs.jpg"
-import wonderland from "./company/wonderland.jpg"
-import mackenziehealth from "./company/mackenziehealth.png"
-import privcurity from "./company/privcurity.jpg"
-import staples from "./company/staples.png"
-import google from "./company/google.png"
-import whmis from "./company/whmis.png"
+import typescript from "./tech/typescript.png";
+import threejs from "./tech/threejs.svg";
+import python from "./tech/python.png";
+import java from "./tech/java.png";
+import cplusplus from "./tech/c++.svg";
+import postgresql from "./tech/postgresql.png";
 import aws from "./tech/aws.png";
-import microsoft from "./company/microsoft.png";
-import ibm from "./company/ibm.svg";
+import ubuntu from "./tech/ubuntu.png";
+import powershell from "./tech/powershell.svg";
+import cisco from "./tech/cisco.svg";
+import virtualbox from "./tech/virtualbox.png";
+import kalilinux from "./tech/kali_linux.svg";
+import wireshark from "./tech/wireshark.png";
+import nmap from "./tech/nmap.svg";
+import johntheripper from "./tech/johntheripper.svg";
+import photoshop from "./tech/photoshop.svg";
+import premiere from "./tech/premiere.svg";
+import cinema4d from "./tech/cinema4d.png";
 
-import axelotlanding from "./axelotlanding.png"
-import netdashlanding from "./netdashlanding.png"
-import securebankdashboard from "./securebankdash.jpg"
-import sunnifyimage from "./demonstration 2.jpg"
-import knifethrowimage from "./knifethrow_demonstration.jpg"
-// import pythonanalysis from "./data_analysis.png"
-// import password_generator from "./passwordgenerator.png"
-// import wordsearch from "./wordsearchoutput.jpg"  // unused - commented out in constants
-// import financialflowimage from "./FinancialFlowDemonstration.png"
-import atsscreenerlanding from "./atsscreenerlanding.png"
-// import enterpriseapitester from "./enterpriseapiui.png"
- 
-// Use the stable route; dev/prod redirect to /resume/<basename>
-const resume = "/resume";
-import awsdbcert from "./AWS Database Specialty Certified - Sunny Jayendra Patel.jpg"
-import connectwisecert from "./Connectwise-Scripting-Certification.pdf"
+import otu from "./company/otu.png";
+import rhhs from "./company/rhhs.jpg";
+import mackenziehealth from "./company/mackenziehealth.png";
+import wonderland from "./company/wonderland.jpg";
+import privcurity from "./company/privcurity.jpg";
+import staples from "./company/staples.png";
+import google from "./company/google.svg";
+import whmis from "./company/whmis.png";
+import ibm from "./company/ibm.svg";
+import allen_events from "./company/allen_events.svg";
+import oracle from "./company/oracle.svg";
+import infosys from "./company/infosys.svg";
+import guvi from "./company/guvi.svg";
+import freecodecamp from "./company/freecodecamp.svg";
+import hp from "./company/hp.svg";
+import sebi from "./company/sebi.png";
+import skillindia from "./company/skill_india.png";
+import udemy from "./company/udemy.svg";
+import scaler from "./company/scaler.svg";
+import microsoft from "./company/microsoft.png";
+
+import markone_ai from "./markone_ai.png";
+import lablink from "./lablink.jpg";
+import documentos from "./documentos.jpg";
+import iot_home from "./iot_home.jpg";
+import portfolio_3d from "./portfolio_3d.jpg";
+import profilepic from "./pfp.png";
 
 export {
   logo,
   backend,
+  creator,
   mobile,
   web,
-  fullstack,
   github,
   menu,
   close,
-  // css,
-  // git,
-  // html,
+  css,
+  docker,
+  figma,
+  git,
+  html,
   javascript,
-  java,
-  ubuntu,
-  reactjs,
-  // linux,
-  tailwind,
-  postgresql,
   mongodb,
-  aws,
-  otu,
-  rhhs,
-  wonderland,
-  mackenziehealth,
-  privcurity,
-  google,
-  whmis,
-  axelotlanding,
-  netdashlanding,
-  securebankdashboard,
-  sunnifyimage,
-  knifethrowimage,
-  // pythonanalysis,
-  // password_generator,
-  // wordsearch,
-  python,
-  cplusplus,
+  nodejs,
+  reactjs,
+  redux,
+  tailwind,
   typescript,
+  threejs,
+  python,
+  java,
+  cplusplus,
+  postgresql,
+  aws,
+  ubuntu,
   powershell,
   cisco,
-  connectwise,
   virtualbox,
   kalilinux,
   wireshark,
   nmap,
-  // metasploit,  // unused - not in Tech.jsx
   johntheripper,
-  // hydra,  // unused - not in Tech.jsx
-  // aircrackng,  // unused - not in Tech.jsx
   photoshop,
   premiere,
   cinema4d,
-  // blender,  // unused - not in Tech.jsx
-  resume,
-  awsdbcert,
-  connectwisecert,
-  // financialflowimage,
-  atsscreenerlanding,
-  // enterpriseapitester,
-  profilepic,
-  docker,
-  // figma,
-  // mysql,
-  threejs,
-  azure,
+  otu,
+  rhhs,
+  mackenziehealth,
+  wonderland,
+  privcurity,
   staples,
+  google,
+  whmis,
+  ibm,
+  allen_events,
+  oracle,
+  infosys,
+  guvi,
+  freecodecamp,
+  hp,
+  sebi,
+  skillindia,
+  udemy,
+  scaler,
   microsoft,
-  ibm
+  markone_ai,
+  lablink,
+  documentos,
+  iot_home,
+  portfolio_3d,
+  profilepic,
 };
