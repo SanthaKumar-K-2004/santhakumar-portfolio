@@ -2,6 +2,8 @@
   "name": "3d-portfolio",
   "private": true,
   "version": "0.0.0",
+  "author": "Santhakumar K",
+  "description": "Professional 3D Portfolio built with React and Three.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
